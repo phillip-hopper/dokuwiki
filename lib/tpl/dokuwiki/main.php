@@ -40,6 +40,10 @@ $showSidebar = $hasSidebar && ($ACT=='show');
                     <h3 class="toggle"><?php echo $lang['sidebar'] ?></h3>
                     <div class="content">
                         <?php tpl_flush() ?>
+                        <?php
+                            $translation = plugin_load('helper','translation');
+                            if ($translation) echo $translation->showTranslations();
+                        ?>
                         <?php tpl_includeFile('sidebarheader.html') ?>
                         <?php tpl_include_page($conf['sidebar'], 1, 1) ?>
                         <?php tpl_includeFile('sidebarfooter.html') ?>
